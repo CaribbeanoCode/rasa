@@ -1,0 +1,13 @@
+version: '3.4'
+services:
+  rasa:
+    image: rasa/rasa:latest-full
+    ports:
+      - "5005:5005"
+    volumes:
+      - .:/app
+    command:
+      - run
+      - --enable-api
+      - --cors
+      - "*"
