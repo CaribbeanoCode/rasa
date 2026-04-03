@@ -2,18 +2,15 @@ version: '3.8'
 
 services:
   rasa:
-    image: rasa/rasa:3.6.2-full # Version stable et complète
+    image: rasa/rasa:3.6.2-full
     container_name: rasa_server
     restart: unless-stopped
     ports:
       - "5005:5005"
     volumes:
-      # On relie les fichiers de ton dépôt GitHub au conteneur
       - ./:/app
-      # On crée un volume persistant pour ne pas perdre tes modèles entraînés
       - rasa_models:/app/models
     command:
-      # Lancement du serveur avec l'API activée
       - run
       - -m
       - models
