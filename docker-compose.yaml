@@ -1,11 +1,10 @@
 version: '3.4'
 services:
   rasa:
-    image: rasa/rasa:latest-full
+    image: rasa/rasa:3.6.15-full  # Une version stable et complète
+    container_name: rasa_it2
     ports:
       - "5005:5005"
-    volumes:
-      - .:/app
     command:
       - run
       - --enable-api
